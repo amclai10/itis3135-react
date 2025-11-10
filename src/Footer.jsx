@@ -21,7 +21,6 @@ export default function Footer() {
                 <li><a href="https://webpages.charlotte.edu/amclai10/itis3135" target="_blank">CLT ITIS3135 Page</a></li>
                 <li><a href="https://amclai10.github.io/amclai10/" target="_blank">GitHub.io Page</a></li>
                 <li><a href="aidanmc.com/">Designed by Aidan McLain LLC</a></li>
-                <li><a href="ambitiousMonkey/">Ambitious Monkey</a></li>
                 <li><a ref={htmlLinkRef} target="_blank" rel="noopener noreferrer">Validate HTML</a></li>
                 <li><a ref={cssLinkRef} target="_blank" rel="noopener noreferrer">Validate CSS</a></li>
                 <li><p>Aidan McLain &copy;2025</p></li>
