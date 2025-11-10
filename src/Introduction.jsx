@@ -3,7 +3,7 @@ import {useEffect} from "react";
 
 export default function Introduction() {
     useEffect(() => {
-        document.title = "Aidan McLain's Ambitious Monkey | ITIS3135 Introduction";
+        document.title = "Aidan McLain's Ambitious Monkey | ITIS3135 | Introduction";
     }, []);
     return (
         <main>

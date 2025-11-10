@@ -9,7 +9,7 @@ import {useEffect} from "react";
 
 function HomePage() {
     useEffect(() => {
-        document.title = "Aidan McLain's Ambitious Monkey | ITIS3135 Home";
+        document.title = "Aidan McLain's Ambitious Monkey | ITIS3135 | Home";
     }, []);
 
     return (
