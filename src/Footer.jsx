@@ -25,7 +25,7 @@ export default function Footer() {
                 <li><a ref={htmlLinkRef} target="_blank" rel="noopener noreferrer">Validate HTML</a></li>
                 <li><a ref={cssLinkRef} target="_blank" rel="noopener noreferrer">Validate CSS</a></li>
                 <li><p>Aidan McLain &copy;2025</p></li>
-                <li><a className={DesignedBy} href="aidanmc.com/">Designed by Aidan McLain LLC</a></li>
+                <li><a href="aidanmc.com/">Designed by Aidan McLain LLC</a></li>
             </ul>
         </div>
     );
