@@ -1,6 +1,10 @@
 import profileImage from './assets/aidanmclain-profile.png';
+import {useEffect} from "react";
 
 export default function Introduction() {
+    useEffect(() => {
+        document.title = "Aidan McLain | ITIS3135 Introduction";
+    }, []);
     return (
         <main>
             <h2>ITIS-3135 Introduction Page</h2>

@@ -1,4 +1,12 @@
+import {useEffect} from "react";
+
+
 export default function Contract() {
+
+    useEffect(() => {
+        document.title = "Aidan McLain | ITIS3135 Contract";
+    }, []);
+
     return (
         <main>
             <h2>ITIS-3135 Contract Page</h2>

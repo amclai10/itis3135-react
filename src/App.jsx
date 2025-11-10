@@ -23,6 +23,7 @@ function App() {
         script.crossOrigin = "anonymous";
         script.async = true; // optional but recommended
         document.head.appendChild(script);
+        document.title = "Aidan McLain | ITIS3135 Home Page";
     }, []);
 
     return (
