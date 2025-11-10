@@ -4,7 +4,7 @@ import {useEffect} from "react";
 export default function Contract() {
 
     useEffect(() => {
-        document.title = "Aidan McLain | ITIS3135 Contract";
+        document.title = "Aidan McLain's Ambitious Monkey | ITIS3135 Contract";
     }, []);
 
     return (
