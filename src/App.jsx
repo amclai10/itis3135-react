@@ -8,6 +8,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import {useEffect} from "react";
 
 function HomePage() {
+    useEffect(() => {
+        document.title = "Aidan McLain | ITIS3135 Home Page";
+    }, []);
+
     return (
         <main>
             <h2>ITIS3135 Home Page</h2>
@@ -23,7 +27,6 @@ function App() {
         script.crossOrigin = "anonymous";
         script.async = true; // optional but recommended
         document.head.appendChild(script);
-        document.title = "Aidan McLain | ITIS3135 Home Page";
     }, []);
 
     return (
