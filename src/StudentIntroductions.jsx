@@ -4,7 +4,7 @@ export default function ClassIntros() {
     const [introductionData, setIntroductionData] = useState([]);
     const [error, setError] = useState(null);
     useEffect(() => {
-        fetch("https://dvonb.xyz/api/2025-fall/itis3135/students?full=1")
+        fetch("https://dvonb.xyz/api/2025-fall/itis-3135/students?full=1")
             .then(response => {
                 if (response.ok) {
                     return response.json();
