@@ -6,7 +6,7 @@ import Contract from './Contract.jsx'
 import Introduction from './Introduction.jsx'
 import Home from './Home.jsx'
 import ClassIntros from './StudentIntroductions.jsx'
-
+import ClassIntros2 from './classIntros2.jsx'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
                 <Route path="/contract" element={<Contract />} />
                 <Route path="/introduction" element={<Introduction />} />
                 <Route path="/classintros" element={<ClassIntros />} />
+                <Route path="/classintros2" element={<ClassIntros2 />} />
             </Routes>
             <Footer/>
         </Router>

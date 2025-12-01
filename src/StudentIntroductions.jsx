@@ -20,7 +20,7 @@ export default function ClassIntros() {
         {error == null ? "" : <p>Error Code {error}</p>}
         {
             introductionData.map((student, index) =>
-                <article key={index} className ="studentIntros">
+                <article key={index} className="studentIntros">
                     <h3>
                         {student.name.first} {" "}
                         {student.name.middleInitial ? student.name.middleInitial + ". " : ""}  {" "}
@@ -28,12 +28,12 @@ export default function ClassIntros() {
                         {student.name.last} {" "}
                         {student.divider} {" "}
                     </h3>
-                    <div className="studentIntros-content">
-                        <figure className="studentIntros-figure">
+                    <div className="studentIntros content">
+                        <figure className="studentIntros figure">
                             <img src={"https://dvonb.xyz" + student.media.src} alt={student.media.caption} />
                             <figcaption>{student.media.caption}</figcaption>
                         </figure>
-                        <div className="studentIntros-text">
+                        <div className="studentIntros textContent">
                             <p>{student.personalStatement}</p>
                             <ul>
                                 <li><strong>Personal Background: </strong> {student.backgrounds.personal}</li>
@@ -50,14 +50,14 @@ export default function ClassIntros() {
                                     <strong>Fun Fact: </strong> {student.funFact}
                                 </li>
                                 <li>
-                                    <strong>Additional Information: </strong> {student.additional}
+                                    <strong>Additional Information: </strong> {student.additional ? student.additional : "N/A"}
                                 </li>
                             </ul>
                             <p><em>{student.quote.text}</em>
                             <br />- {student.quote.author}</p>
                         </div>
                     </div>
-                    <div className="studentIntros-links">
+                    <div className="studentIntros links">
                         <a href={student.links.charlotte}>CLT Web</a> 
                         <a href={student.links.gitHub}>GitHub</a> 
                         <a href={student.links.githubio}>Github.io</a> 

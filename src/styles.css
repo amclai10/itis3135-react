@@ -56,9 +56,6 @@ main {
 }
 
 /* Typography */
-h2, h3 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
 h2 {
     margin-bottom: 1rem;
 }
@@ -283,60 +280,68 @@ header h1 {
     margin-bottom: 2rem;
 }
 
-.studentIntros-content {
+.studentIntros.content {
     display: grid;
     grid-template-columns: 300px 1fr;
     gap: 2rem;
     align-items: start;
 }
 
-.studentIntros-figure {
+.studentIntros.figure {
     width: 100%;
     max-width: 300px;
     margin: 0;
 }
 
-.studentIntros-figure img {
+.studentIntros.figure img {
     width: 100%;
     height: auto;
     max-height: 400px;
     object-fit: cover;
 }
 
-.studentIntros-text {
+.studentIntros.figure figcaption {
+    font-style: italic;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.studentIntros.textContent {
     flex: 1;
 }
 
-.studentIntros-links {
+.studentIntros.links {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: 1rem;
 }
 
-.studentIntros-links a {
+.studentIntros.links a {
     background-color: var(--secondary-dark);
     color: var(--primary-light);
     border-radius: 10px;
     padding: 0.5rem 1rem;
     display: inline-block;
-    margin-bottom: 1rem;
+    text-decoration: none;
 }
 
-.studentIntros-links a:hover {
+.studentIntros.links a:hover {
     background-color: var(--primary-dark);
+    color: var(--primary-light);
+}
+
+.studentIntros.quote {
+    padding-top: 1rem;
+    text-align: center;
 }
 
 @media (max-width: 768px) {
-    .studentIntros-content {
+    .studentIntros.content {
         grid-template-columns: 1fr;
     }
     
-    .studentIntros-figure {
+    .studentIntros.figure {
         max-width: 100%;
     }
-}
-ul, ol {
-    padding-left: 2rem;
-    padding-right: 2rem;
 }
