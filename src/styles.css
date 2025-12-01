@@ -279,3 +279,64 @@ header h1 {
         margin: 0 auto;
     }
 }
+.studentIntros {
+    margin-bottom: 2rem;
+}
+
+.studentIntros-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.studentIntros-figure {
+    width: 100%;
+    max-width: 300px;
+    margin: 0;
+}
+
+.studentIntros-figure img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.studentIntros-text {
+    flex: 1;
+}
+
+.studentIntros-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.studentIntros-links a {
+    background-color: var(--secondary-dark);
+    color: var(--primary-light);
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.studentIntros-links a:hover {
+    background-color: var(--primary-dark);
+}
+
+@media (max-width: 768px) {
+    .studentIntros-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .studentIntros-figure {
+        max-width: 100%;
+    }
+}
+ul, ol {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
