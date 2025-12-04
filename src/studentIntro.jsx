@@ -1,4 +1,6 @@
-export default function studentIntroduction(student, index, displayName, displayMascot, displayImage, displayLinks, displayQuote, displayCourses) {
+import 'swiper/css';
+
+export default function studentIntroduction(student, index, displayName, displayMascot, displayImage, displayLinks, displayQuote, displayCourses, displayPersonalStatement, displayBackgrounds, displayExtraInfo) {
     return (
         <article key={index} className="studentIntros">
 
@@ -23,33 +25,47 @@ export default function studentIntroduction(student, index, displayName, display
                         </figure>) : null
                 }
                 <div className="studentIntros textContent">
-                    <p>{student.personalStatement}</p>
+
                     <ul>
-                        <li><strong>Personal Background: </strong> {student.backgrounds.personal}</li>
-                        <li><strong>Professional Background: </strong> {student.backgrounds.professional}</li>
-                        <li><strong>Academic Background: </strong> {student.backgrounds.academic}</li>
-                        <li><strong>Subject Background: </strong> {student.backgrounds.subject}</li>
                         {
-                            displayCourses &&
-                            <li>
-                                <strong>Courses:</strong>
-                                <ol>
-                                    {student.courses.map((course, index) => <li key={index}><strong>{course.dept} {course.num} - {course.name}</strong>: {course.reason}</li>)}
-                                </ol>
-                            </li>
+                            displayPersonalStatement &&
+                            <li><strong>Personal Statement:</strong> {student.personalStatement}</li>
+
+                        }
+                        {
+                            displayBackgrounds && (
+                                <>
+                                    <li><strong>Personal Background: </strong> {student.backgrounds.personal}</li>
+                                    <li><strong>Professional Background: </strong> {student.backgrounds.professional}</li>
+                                    <li><strong>Academic Background: </strong> {student.backgrounds.academic}</li>
+                                    <li><strong>Subject Background: </strong> {student.backgrounds.subject}</li>
+                                </>
+                            )
                         }
 
-                        <li>
-                            <strong>Fun Fact: </strong> {student.funFact}
-                        </li>
-                        <li>
-                            <strong>Additional Information: </strong> {student.additional ? student.additional : "N/A"}
-                        </li>
+                        {
+                            displayCourses && (
+                                <li>
+                                    <strong>Courses:</strong>
+                                    <ol>
+                                        {student.courses.map((course, index) => <li key={index}><strong>{course.dept} {course.num} - {course.name}</strong>: {course.reason}</li>)}
+                                    </ol>
+                                </li>
+                            )
+                        }
+                        {
+                            displayExtraInfo && (
+                                <>
+                                    <li><strong>Fun Fact: </strong> {student.funFact}</li>
+                                    <li><strong>Additional Information: </strong> {student.additional ? student.additional : "N/A"}</li>
+                                </>
+                            )
+                        }
+
                     </ul>
                     {
                         displayQuote &&
-                        <p className="studentIntros quote"><em>{student.quote.text}</em>
-                            <br />- {student.quote.author}</p>
+                        <p className="studentIntros quote"><em>{student.quote.text}</em><br />- {student.quote.author}</p>
                     }
 
                 </div>
@@ -63,10 +79,9 @@ export default function studentIntroduction(student, index, displayName, display
                     <a href={student.links.itis3135}>ITIS 3135</a>
                     <a href={student.links.freecodecamp}>freeCodeCamp</a>
                     <a href={student.links.codecademy}>CodeAcademy</a>
-                    <a href={student.links.linkedin}>linkedIn</a>
+                    <a href={student.links.linkedin}>LinkedIn</a>
                 </div>
             }
-            <hr />
         </article>
     )
 

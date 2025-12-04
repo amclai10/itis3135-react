@@ -1,5 +1,11 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import studentIntroduction from './studentIntro.jsx';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 export default function ClassIntros2() {
     const [introductionData, setIntroductionData] = useState([]);
     const [error, setError] = useState(null);
@@ -10,6 +16,12 @@ export default function ClassIntros2() {
     const [displayLinks, setDisplayLinks] = useState(true);
     const [displayQuote, setDisplayQuote] = useState(true);
     const [displayCourses, setDisplayCourses] = useState(true);
+    const [displayPersonalStatement, setDisplayPersonalStatement] = useState(true);
+    const [displayBackgrounds, setDisplayBackgrounds] = useState(true);
+    const [displayExtraInfo, setDisplayExtraInfo] = useState(true);
+
+    // Remove the manual Swiper initialization - React components handle this
+
     useEffect(() => {
         fetch("https://dvonb.xyz/api/2025-fall/itis-3135/students?full=1")
             .then(response => {
@@ -22,6 +34,7 @@ export default function ClassIntros2() {
             .then((data) => setIntroductionData(data))
             .catch(error => setError(error.message));
     }, [])
+
     return <main>
         <h2>Enhanced Introductions</h2>
         <label>
@@ -38,6 +51,21 @@ export default function ClassIntros2() {
             <label>
                 &nbsp;&nbsp;Mascot:&nbsp;&nbsp;
                 <input type="checkbox" checked={displayMascot} onClick={() => setDisplayMascot(!displayMascot)} />
+            </label>
+
+            <label>
+                &nbsp;&nbsp;Personal Statement:&nbsp;&nbsp;
+                <input type="checkbox" checked={displayPersonalStatement} onClick={() => setDisplayPersonalStatement(!displayPersonalStatement)} />
+            </label>
+
+            <label>
+                &nbsp;&nbsp;Backgrounds:&nbsp;&nbsp;
+                <input type="checkbox" checked={displayBackgrounds} onClick={() => setDisplayBackgrounds(!displayBackgrounds)} />
+            </label>
+
+            <label>
+                &nbsp;&nbsp;Extra Information:&nbsp;&nbsp;
+                <input type="checkbox" checked={displayExtraInfo} onClick={() => setDisplayExtraInfo(!displayExtraInfo)} />
             </label>
 
             <label>
@@ -59,17 +87,31 @@ export default function ClassIntros2() {
         </section>
 
         {error == null ? "" : <p>Error Code {error}</p>}
+        <Swiper
+            className="mySwiper"
+            modules={[Navigation, Pagination]}
+            slidesPerView={1}
+            spaceBetween={30}
+            centeredSlides={true}
+            autoHeight={true}
+            pagination={{
+                type: "fraction",
+                clickable: true,
+            }}
+            navigation={true}
+        >
+            {
+                introductionData.filter((studentData) => {
+                    if (nameSearch === "") return true;
+                    const fullStudentName = `${studentData.name.first} ${studentData.name.middleInitial}. "${studentData.name.preferred}" ${studentData.name.last}`;
+                    return fullStudentName.toLowerCase().includes(nameSearch.toLowerCase());
+                }).map((student, index) => (
+                    <SwiperSlide key={index}>
+                        {studentIntroduction(student, index, displayName, displayMascot, displayImage, displayLinks, displayQuote, displayCourses, displayPersonalStatement, displayBackgrounds, displayExtraInfo)}
+                    </SwiperSlide>
+                ))
+            }
+        </Swiper>
 
-        {
-
-            introductionData.filter((studentData) => {
-                if (nameSearch === "") return true;
-                const fullStudentName = `${studentData.name.first} ${studentData.name.middleInitial}. "${studentData.name.preferred}" ${studentData.name.last}`;
-                return fullStudentName.toLowerCase().includes(nameSearch.toLowerCase());
-            }).map((student, index) =>
-                studentIntroduction(student, index, displayName, displayMascot, displayImage, displayLinks, displayQuote, displayCourses)
-            )
-
-        }
     </main>
 }
